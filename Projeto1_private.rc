@@ -1,0 +1,7 @@
+/* THIS FILE WILL BE OVERWRITTEN BY DEV-C++ */
+/* DO NOT EDIT! */
+
+#include "Projeto1_private.rc"
+
+A ICON MOVEABLE PURE LOADONCALL DISCARDABLE "Projeto1.ico"
+

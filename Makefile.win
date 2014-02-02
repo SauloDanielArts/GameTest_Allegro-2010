@@ -1,0 +1,33 @@
+# Project: Projeto1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = Projeto1_private.res
+OBJ  = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS =  -L"D:/Dev-CppPortable/App/devcpp/lib" -mwindows -lalleg_s -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound -lalpng -lalleg -lalfont -lalleg  -s 
+INCS =  -I"D:/Dev-CppPortable/App/devcpp/include" 
+CXXINCS =  -I"D:/Dev-CppPortable/App/devcpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/Dev-CppPortable/App/devcpp/include/c++/3.4.2/backward"  -I"D:/Dev-CppPortable/App/devcpp/include/c++/3.4.2/mingw32"  -I"D:/Dev-CppPortable/App/devcpp/include/c++/3.4.2"  -I"D:/Dev-CppPortable/App/devcpp/include" 
+BIN  = Projeto1.exe
+CXXFLAGS = $(CXXINCS) -DALLEGRO_STATICLINK  
+CFLAGS = $(INCS) -DALLEGRO_STATICLINK  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Projeto1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Projeto1.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Projeto1_private.res: Projeto1_private.rc 
+	$(WINDRES) -i Projeto1_private.rc --input-format=rc -o Projeto1_private.res -O coff 
